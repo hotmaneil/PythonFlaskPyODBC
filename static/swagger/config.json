@@ -1,0 +1,113 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Flask API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000"
+    },
+    {
+      "url": "http://localhost:5000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Hermes Adapter Web API",
+      "description": "CRUD Operations"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Retrieve all user",
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/user"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/{account}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Retrieve one user",
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/user"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "user": {
+        "type": "object",
+        "properties": {
+          "ID": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "CODE": {
+            "type": "string",
+            "example": "admin"
+          },
+          "NAME": {
+            "type": "string",
+            "example": "Administrator"
+          },
+          "PASSWORD": {
+            "type": "string",
+            "example": "xxx"
+          },
+          "IS_ENABLED": {
+            "type": "boolean",
+            "example": "true"
+          },
+          "IS_DELETED": {
+            "type": "boolean",
+            "example": "false"
+          },
+          "CREATE_USER": {
+            "type": "string",
+            "example": "System"
+          },
+          "CREATE_TIME": {
+            "type": "dateTime",
+            "example": "2025-07-01 10:00:00.000"
+          },
+          "MODIFIER": {
+            "type": "string",
+            "example": "System"
+          },
+          "MODIFY_TIME": {
+            "type": "dateTime",
+            "example": "2025-07-01 10:00:00.000"
+          }
+        }
+      }
+    }
+  }
+}
