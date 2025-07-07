@@ -9,7 +9,7 @@ class getAllUsers(Resource):
 
     def get(self):
         _user=userManager()
-        userList = _user.getUserListByDapper()
+        userList = _user.getUserList()
         returnJsonify = jsonify([asdict(user) for user in userList])
         return returnJsonify
 
