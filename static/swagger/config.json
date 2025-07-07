@@ -39,6 +39,35 @@
         }
       }
     },
+    "/createUser": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Create a user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/userViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/userViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/user/{account}": {
       "get": {
         "tags": [
@@ -70,6 +99,47 @@
             "format": "int64",
             "example": 1
           },
+          "CODE": {
+            "type": "string",
+            "example": "admin"
+          },
+          "NAME": {
+            "type": "string",
+            "example": "Administrator"
+          },
+          "PASSWORD": {
+            "type": "string",
+            "example": "xxx"
+          },
+          "IS_ENABLED": {
+            "type": "boolean",
+            "example": "true"
+          },
+          "IS_DELETED": {
+            "type": "boolean",
+            "example": "false"
+          },
+          "CREATE_USER": {
+            "type": "string",
+            "example": "System"
+          },
+          "CREATE_TIME": {
+            "type": "dateTime",
+            "example": "2025-07-01 10:00:00.000"
+          },
+          "MODIFIER": {
+            "type": "string",
+            "example": "System"
+          },
+          "MODIFY_TIME": {
+            "type": "dateTime",
+            "example": "2025-07-01 10:00:00.000"
+          }
+        }
+      },
+      "userViewModel": {
+        "type": "object",
+        "properties": {
           "CODE": {
             "type": "string",
             "example": "admin"

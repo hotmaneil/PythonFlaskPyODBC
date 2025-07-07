@@ -6,7 +6,7 @@ from resources.swaggerConfig import SwaggerConfig
 
 from flask_swagger_ui import get_swaggerui_blueprint
 
-from controllers.UsersController import getAllUsers,getOneUser
+from controllers.UsersController import getAllUsers,getOneUser,createUser
 
 # ============================================
 # Main
@@ -66,7 +66,7 @@ api.add_resource(SwaggerConfig, '/swagger-config')
 api.add_resource(getAllUsers, '/users')
 api.add_resource(getOneUser, '/user/<string:account>')
 # POST 
-# api.add_resource(BookPOSTResource, '/books')
+api.add_resource(createUser, '/createUser')
 # PUT 
 # api.add_resource(BookPUTResource, '/books/<int:id>')
 # DELETE 
