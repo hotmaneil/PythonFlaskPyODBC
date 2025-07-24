@@ -6,7 +6,9 @@ from resources.swaggerConfig import SwaggerConfig
 
 from flask_swagger_ui import get_swaggerui_blueprint
 
-from controllers.UsersController import getAllUsers,getOneUser,createUser
+from controllers.UsersController import getAllUsers, getOneUser, createUser
+
+from waitress import serve
 
 # ============================================
 # Main
@@ -62,15 +64,20 @@ def redirect_to_prefix():
 # ============================================
 # GET swagger config
 api.add_resource(SwaggerConfig, '/swagger-config')
-# GET 
+# GET
 api.add_resource(getAllUsers, '/users')
 api.add_resource(getOneUser, '/user/<string:account>')
-# POST 
+# POST
 api.add_resource(createUser, '/createUser')
-# PUT 
+# PUT
 # api.add_resource(BookPUTResource, '/books/<int:id>')
-# DELETE 
+# DELETE
 # api.add_resource(BookDELETEResource, '/books/<int:id>')
 
+mode = "prod"
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    if mode == "dev":
+        app.run(debug=True)
+    else:
+        serve(app, host='0.0.0.0', port=8888, threads=1)
